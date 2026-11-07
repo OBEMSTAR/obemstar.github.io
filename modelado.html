@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 · 3D Modeling — OBEMSTAR</title>
+  <meta name="description" content="Núcleo 3D de OBEMSTAR: personajes, props, entornos y hard surface. Modelos a la venta y por encargo.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="modelado" data-modulo="modelado">
+
+<main class="contenedor">
+  <header class="cabecera-modulo">
+    <div class="ruta sistema">OBEMSTAR:/03/NUCLEO-3D</div>
+    <div class="division-tag"><span class="etiqueta">NÚCLEO COMPARTIDO · INTERACTIVE + INDUSTRIES</span></div>
+    <h1 class="titular-rgb">3D Modeling</h1>
+    <div class="linea-roja"></div>
+    <p class="entradilla" style="margin-top:18px">Todo empieza aquí. Los modelos de este núcleo acaban dentro de un juego, en una tienda o saliendo de una impresora.</p>
+  </header>
+
+  <!-- Los modelos se editan en js/contenido.js. Si un modelo tiene archivo .glb,
+       aparece un visor 3D interactivo en su tarjeta. -->
+  <section class="seccion">
+    <div class="seccion-cabecera"><div><div class="sistema">GALERÍA · FILTRAR POR TIPO</div><h2>Modelos</h2></div></div>
+    <div class="filtros" data-filtros="modelos" role="group" aria-label="Filtrar modelos"></div>
+    <div class="rejilla" data-render="modelos"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="rejilla-2">
+      <div class="panel aparece">
+        <div class="panel-cabecera"><span>TIENDA DE MODELOS</span><span class="cod">UPLINK-03</span></div>
+        <h2>Modelos listos para usar</h2>
+        <p>Compra modelos 3D para tus juegos, renders o impresiones en mi tienda de Sketchfab.</p>
+        <div class="botones"><a class="boton" href="uplink.html">Ir a tiendas ›</a></div>
+      </div>
+      <div class="panel aparece">
+        <div class="panel-cabecera"><span>ENCARGOS</span><span class="cod">A MEDIDA</span></div>
+        <h2>Un modelo para ti</h2>
+        <p>Personajes, props o piezas técnicas modeladas a partir de tu idea, boceto o referencia.</p>
+        <div class="botones"><a class="boton" href="transmit.html?motivo=modelo">Pedir un modelo ›</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

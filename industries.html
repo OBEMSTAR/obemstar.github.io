@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 · Industries — OBEMSTAR</title>
+  <meta name="description" content="OBEMSTAR Industries: impresión 3D de figuras, piezas funcionales y encargos a medida.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="industries" data-modulo="industries">
+
+<main class="contenedor">
+  <header class="cabecera-modulo">
+    <div class="ruta sistema">OBEMSTAR:/04/INDUSTRIES</div>
+    <div class="division-tag"><span class="etiqueta">DIV-02 · IMPRESIÓN 3D</span></div>
+    <h1 class="titular-rgb">Industries</h1>
+    <div class="linea-roja"></div>
+    <p class="entradilla" style="margin-top:18px">La unidad de fabricación de OBEMSTAR. No solo cosas frikis: también piezas funcionales y encargos a medida.</p>
+    <div class="botones"><a class="boton" href="transmit.html?motivo=impresion">Solicitar presupuesto ›</a>
+      <a class="boton fantasma" href="uplink.html">Comprar en Etsy</a></div>
+  </header>
+
+  <!-- Las impresiones se editan en js/contenido.js. Si una pieza tiene render Y foto,
+       aparece el comparador "modelo vs. pieza real". -->
+  <section class="seccion">
+    <div class="seccion-cabecera"><div><div class="sistema">REGISTRO DE PRODUCCIÓN</div><h2>Piezas impresas</h2></div></div>
+    <div class="filtros" data-filtros="impresiones" role="group" aria-label="Filtrar impresiones"></div>
+    <div class="rejilla" data-render="impresiones"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="rejilla-2">
+      <div class="panel aparece">
+        <div class="panel-cabecera ambar"><span>ESPECIFICACIONES</span><span class="cod">FAB-UNIT</span></div>
+        <h2>Qué puedo imprimir</h2>
+        <ul class="ficha" data-render="capacidades"></ul>
+      </div>
+      <div class="panel aparece">
+        <div class="panel-cabecera"><span>ESTADO DE LA UNIDAD</span><span class="cod">EN VIVO</span></div>
+        <h2>Disponibilidad</h2>
+        <ul class="estado-lista" data-render="estado"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="seccion-cabecera"><div><div class="sistema">PROTOCOLO DE ENCARGO</div><h2>Cómo funciona</h2></div></div>
+    <div class="pasos">
+      <div class="panel paso aparece"><h3>Idea</h3><p>Me cuentas qué necesitas: una figura, un repuesto, una pieza técnica. Con foto, boceto o archivo STL si lo tienes.</p></div>
+      <div class="panel paso aparece"><h3>Presupuesto</h3><p>Te digo material, acabado, plazo y precio. Si hace falta modelarla desde cero, también.</p></div>
+      <div class="panel paso aparece"><h3>Impresión</h3><p>La pieza entra en la unidad de fabricación. Te mantengo al tanto del avance.</p></div>
+      <div class="panel paso aparece"><h3>Envío</h3><p>Revisión final, embalaje y envío o recogida.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

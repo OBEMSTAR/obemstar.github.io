@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>06 · Transmit — OBEMSTAR</title>
+  <meta name="description" content="Contacta con OBEMSTAR: encargos de impresión 3D, modelos a medida, colaboraciones en videojuegos y prensa.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="transmit" data-modulo="transmit">
+
+<main class="contenedor">
+  <header class="cabecera-modulo">
+    <div class="ruta sistema">OBEMSTAR:/06/TRANSMIT</div>
+    <h1 class="titular-rgb">Transmit</h1>
+    <div class="linea-roja"></div>
+    <p class="entradilla" style="margin-top:18px">Abre un canal con la compañía. Respuesta estimada: <span data-config="respuestaEstimada"></span>.</p>
+  </header>
+
+  <section class="seccion" style="padding-top:20px">
+    <div class="rejilla-2" style="align-items:start">
+      <div class="panel aparece">
+        <div class="panel-cabecera"><span>NUEVA TRANSMISIÓN</span><span class="cod">CANAL SEGURO</span></div>
+        <form class="formulario" id="form-transmit">
+          <div class="campo">
+            <label for="nombre">NOMBRE</label>
+            <input id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="campo">
+            <label for="email">CORREO</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="campo">
+            <label for="motivo">MOTIVO</label>
+            <select id="motivo" name="motivo">
+              <option value="impresion">Encargo de impresión 3D</option>
+              <option value="modelo">Modelo 3D a medida</option>
+              <option value="juegos">Colaboración en videojuegos</option>
+              <option value="prensa">Prensa / press kit</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="campos-impresion">
+            <div class="campo"><label for="medidas">MEDIDAS APROX.</label><input id="medidas" name="medidas" placeholder="ej. 15 × 10 × 8 cm"></div>
+            <div class="campo"><label for="material">MATERIAL</label><input id="material" name="material" placeholder="ej. PLA, resina, no lo sé"></div>
+            <div class="campo"><label for="cantidad">CANTIDAD</label><input id="cantidad" name="cantidad" type="number" min="1" value="1"></div>
+            <div class="campo campo-ancho"><label for="adjunto">ADJUNTO (STL O IMAGEN)</label><input id="adjunto" name="adjunto" type="file" accept=".stl,.obj,.3mf,image/*"></div>
+          </div>
+          <div class="campo">
+            <label for="mensaje">MENSAJE</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="Cuéntame qué necesitas..."></textarea>
+          </div>
+          <div><button class="boton" type="submit">Transmitir ›</button></div>
+        </form>
+        <div class="confirmacion" style="margin-top:20px" role="status"></div>
+      </div>
+
+      <div style="display:grid;gap:20px">
+        <div class="panel aparece">
+          <div class="panel-cabecera"><span>CANAL DIRECTO</span><span class="cod">EMAIL</span></div>
+          <p>¿Prefieres escribir directamente?</p>
+          <p class="sistema" style="font-size:1.5rem" data-config="email"></p>
+        </div>
+        <div class="panel aparece">
+          <div class="panel-cabecera"><span>ESTADO</span><span class="cod">EN VIVO</span></div>
+          <ul class="estado-lista" data-render="estado"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

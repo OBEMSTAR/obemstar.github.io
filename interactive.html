@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Interactive Division — OBEMSTAR</title>
+  <meta name="description" content="OBEMSTAR Interactive Division: videojuegos, prototipos y devlog.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="interactive" data-modulo="interactive">
+
+<main class="contenedor">
+  <header class="cabecera-modulo">
+    <div class="ruta sistema">OBEMSTAR:/02/INTERACTIVE-DIVISION</div>
+    <div class="division-tag"><span class="etiqueta">DIV-01 · VIDEOJUEGOS</span></div>
+    <h1 class="titular-rgb">Interactive Division</h1>
+    <div class="linea-roja"></div>
+    <p class="entradilla" style="margin-top:18px">La división de videojuegos de OBEMSTAR: proyectos en marcha, pruebas de laboratorio y la bitácora de desarrollo.</p>
+  </header>
+
+  <!-- Los juegos, prototipos y entradas del devlog se editan en js/contenido.js -->
+  <section class="seccion" id="proyectos">
+    <div class="seccion-cabecera"><div><div class="sistema">ARCHIVO DE PROYECTOS</div><h2>Juegos</h2></div></div>
+    <div class="rejilla-2" data-render="juegos"></div>
+  </section>
+
+  <section class="seccion" id="laboratorio">
+    <div class="seccion-cabecera"><div><div class="sistema">LABORATORIO · ACCESO RESTRINGIDO</div><h2>Prototipos</h2></div>
+      <span class="etiqueta alerta">EXPERIMENTAL</span></div>
+    <div class="rejilla" data-render="prototipos"></div>
+  </section>
+
+  <section class="seccion" id="devlog">
+    <div class="panel aparece">
+      <div class="panel-cabecera"><span>BITÁCORA DE DESARROLLO</span><span class="cod">DEVLOG</span></div>
+      <ul class="bitacora" data-render="devlog"></ul>
+    </div>
+  </section>
+
+  <section class="seccion" id="prensa">
+    <div class="panel aparece">
+      <div class="panel-cabecera"><span>PRENSA Y CREADORES</span><span class="cod">PRESS KIT</span></div>
+      <h2>Press kit</h2>
+      <p>Logos, capturas y descripciones de cada juego para medios y creadores de contenido. Mientras se prepara, pídelo directamente.</p>
+      <div class="botones"><a class="boton" href="transmit.html?motivo=prensa">Solicitar press kit ›</a></div>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

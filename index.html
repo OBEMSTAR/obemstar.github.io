@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OBEMSTAR · Terminal</title>
+  <meta name="description" content="OBEMSTAR: videojuegos (Interactive Division), modelado 3D e impresión 3D (Industries). Portfolio, tiendas y contacto.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="inicio">
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="contenedor hero-rejilla">
+      <div>
+        <div class="saludo sistema cursor">CONEXIÓN ESTABLECIDA · BIENVENIDO A BORDO</div>
+        <h1 class="titular-rgb">OBEMSTAR</h1>
+        <div class="linea-roja"></div>
+        <p class="lema" style="margin-top:18px">
+          <!-- EDITA: tu frase de presentación -->
+          Artesanía digital desde el planeta Obem. Desarrollamos videojuegos, modelamos mundos en 3D
+          y los imprimimos para que puedas tenerlos en la mano.
+        </p>
+        <div class="botones">
+          <a class="boton" href="interactive.html">Interactive Division ›</a>
+          <a class="boton fantasma" href="industries.html">Industries ›</a>
+        </div>
+        <div class="datos-vivos">
+          <div>DIVISIONES<b>02</b></div>
+          <div>MÓDULOS<b>06</b></div>
+          <div>ESTADO<b>OPERATIVO</b></div>
+        </div>
+      </div>
+
+      <!-- Globo vectorial de Obem -->
+      <div class="globo-caja" aria-hidden="true">
+        <svg class="globo" viewBox="0 0 400 400" fill="none">
+          <g stroke="#4fd1ff" stroke-width="1.2" opacity=".85">
+            <circle cx="200" cy="200" r="150"/>
+            <ellipse class="meridiano" cx="200" cy="200" rx="150" ry="150"/>
+            <ellipse class="meridiano m2" cx="200" cy="200" rx="150" ry="150"/>
+            <ellipse class="meridiano m3" cx="200" cy="200" rx="150" ry="150"/>
+            <ellipse class="meridiano m4" cx="200" cy="200" rx="150" ry="150"/>
+            <path d="M50 200h300M64 140h272M64 260h272M95 90h210M95 310h210" opacity=".6"/>
+          </g>
+          <ellipse cx="200" cy="200" rx="190" ry="44" transform="rotate(-16 200 200)" stroke="#39ff88" stroke-width="1.4" stroke-dasharray="6 5"/>
+          <g class="barrido"><path d="M200 200L200 50" stroke="#39ff88" stroke-width="1.5" opacity=".8"/>
+            <path d="M200 200L200 50A150 150 0 0 1 275 70z" fill="#39ff88" opacity=".12"/></g>
+          <circle cx="262" cy="148" r="4" fill="#ff3b3b"/><circle cx="262" cy="148" r="10" stroke="#ff3b3b" opacity=".6"/>
+          <path d="M368 92l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="#39ff88"/>
+        </svg>
+        <span class="reticula" style="top:4%;left:4%"></span>
+        <span class="reticula" style="bottom:4%;right:4%"></span>
+        <div class="globo-lectura" style="top:6%;right:2%;text-align:right">OBEM<br>EST. RELATIVA</div>
+        <div class="globo-lectura" style="bottom:7%;left:2%">SECTOR 07<br>ÓRBITA 03</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIVISIONES ===== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion-cabecera">
+        <div><div class="sistema">ESTRUCTURA DE LA COMPAÑÍA</div><h2 class="titular-rgb">Dos divisiones</h2></div>
+      </div>
+      <div class="rejilla-2">
+        <article class="panel division aparece">
+          <div class="panel-cabecera"><span>DIV-01</span><span class="cod">VIDEOJUEGOS</span></div>
+          <h2>Interactive Division<small>OBEMSTAR INTERACTIVE</small></h2>
+          <p>Desarrollo de videojuegos: proyectos en curso, prototipos que se rompen de formas interesantes y un devlog con cada avance.</p>
+          <ul>
+            <li>Proyectos y fichas de juego</li>
+            <li>Laboratorio de prototipos</li>
+            <li>Devlog y press kit</li>
+          </ul>
+          <div class="botones"><a class="boton" href="interactive.html">Entrar ›</a></div>
+        </article>
+        <article class="panel division industries aparece">
+          <div class="panel-cabecera ambar"><span>DIV-02</span><span class="cod">IMPRESIÓN 3D</span></div>
+          <h2>Industries<small>OBEMSTAR INDUSTRIES</small></h2>
+          <p>La unidad de fabricación: figuras, piezas funcionales y encargos a medida impresos en 3D.</p>
+          <ul>
+            <li>Colección friki</li>
+            <li>Piezas y encargos por pedido</li>
+            <li>Presupuestos a medida</li>
+          </ul>
+          <div class="botones"><a class="boton" href="industries.html">Entrar ›</a>
+            <a class="boton fantasma" href="transmit.html?motivo=impresion">Pedir presupuesto</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MÓDULOS ===== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion-cabecera"><div><div class="sistema">ÍNDICE DEL SISTEMA</div><h2>Módulos</h2></div></div>
+      <div class="rejilla">
+        <a class="panel modulo-tarjeta aparece" href="sobre-mi.html"><div class="num">01</div><h3>Lo que soy</h3><p class="suave">Expediente del fundador: origen, propósito y equipo.</p></a>
+        <a class="panel modulo-tarjeta aparece" data-color="interactive" href="interactive.html"><div class="num">02</div><h3>Interactive</h3><p class="suave">Juegos, prototipos y devlog.</p></a>
+        <a class="panel modulo-tarjeta aparece" data-color="modelado" href="modelado.html"><div class="num">03</div><h3>3D Modeling</h3><p class="suave">El núcleo 3D que alimenta a las dos divisiones.</p></a>
+        <a class="panel modulo-tarjeta aparece" data-color="industries" href="industries.html"><div class="num">04</div><h3>Industries</h3><p class="suave">Impresión 3D: colección y encargos.</p></a>
+        <a class="panel modulo-tarjeta aparece" href="uplink.html"><div class="num">05</div><h3>Uplink</h3><p class="suave">Todas las tiendas en un solo punto.</p></a>
+        <a class="panel modulo-tarjeta aparece" href="transmit.html"><div class="num">06</div><h3>Transmit</h3><p class="suave">Contacto, encargos y colaboraciones.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ÚLTIMA TRANSMISIÓN + ESTADO ===== -->
+  <section class="seccion">
+    <div class="contenedor rejilla-2">
+      <article class="panel aparece">
+        <div class="panel-cabecera ambar"><span>ÚLTIMA TRANSMISIÓN</span><span class="cod">AUTO</span></div>
+        <div data-render="ultima"></div>
+      </article>
+      <article class="panel aparece">
+        <div class="panel-cabecera"><span>ESTADO DEL SISTEMA</span><span class="cod">EN VIVO</span></div>
+        <ul class="estado-lista" data-render="estado"></ul>
+        <p class="suave" style="margin-top:16px">Pulsa <b>º</b> o el botón <b>&gt;_</b> para abrir la terminal.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

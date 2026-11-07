@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 · Uplink — OBEMSTAR</title>
+  <meta name="description" content="Todas las tiendas de OBEMSTAR en un solo punto: Steam, Etsy, Sketchfab y más.">
+  <meta name="theme-color" content="#050a07">
+  <link rel="icon" href="assets/img/emblema.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Michroma&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-pagina="uplink">
+
+<main class="contenedor">
+  <header class="cabecera-modulo">
+    <div class="ruta sistema">OBEMSTAR:/05/UPLINK</div>
+    <h1 class="titular-rgb">Uplink</h1>
+    <div class="linea-roja"></div>
+    <p class="entradilla" style="margin-top:18px">Enlaces con las tiendas de la compañía. Todo lo que hago, disponible desde un único punto.</p>
+  </header>
+
+  <!-- Las tiendas se editan en js/contenido.js (apartado "tiendas") -->
+  <section class="seccion">
+    <div class="rejilla" data-render="tiendas"></div>
+  </section>
+
+  <section class="seccion">
+    <div class="panel aparece">
+      <div class="panel-cabecera"><span>¿NO ENCUENTRAS LO QUE BUSCAS?</span><span class="cod">06</span></div>
+      <p>Si quieres algo que no está en ninguna tienda, pídemelo a medida.</p>
+      <div class="botones"><a class="boton" href="transmit.html">Abrir transmisión ›</a></div>
+    </div>
+  </section>
+</main>
+
+<footer data-pie></footer>
+<script src="js/contenido.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>
