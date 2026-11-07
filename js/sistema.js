@@ -329,8 +329,10 @@
     if (pedido && $(`option[value="${pedido}"]`, motivo)) motivo.value = pedido;
     motivo.addEventListener("change", actualizar); actualizar();
 
-    // Envío por FormSubmit: cada mensaje llega como un correo normal a C.formularioDestino
-    // (o a C.email si está vacío). Se envía con POST normal para admitir adjuntos.
+    // Envío del formulario. Dos servicios posibles:
+    //  · Web3Forms (si config.web3formsKey tiene valor): se envía sin salir de la página.
+    //  · FormSubmit (por defecto): POST normal, admite adjuntos y vuelve a esta página.
+    // En ambos casos el mensaje llega como un correo normal.
     const destino = C.formularioDestino || C.email;
     const ok = $(".confirmacion");
     const mostrar = (titulo, texto) => {
@@ -338,14 +340,42 @@
       ok.classList.add("visible");
       ok.scrollIntoView({ behavior: "smooth", block: "center" });
     };
-    form.action = `https://formsubmit.co/${destino.trim()}`;
-    form.method = "POST";
-    form.enctype = "multipart/form-data";
     const oculto = (name, value) => {
       let i = form.querySelector(`input[name="${name}"]`);
       if (!i) { i = document.createElement("input"); i.type = "hidden"; i.name = name; form.appendChild(i); }
       i.value = value;
     };
+    const asunto = () => `[OBEMSTAR] ${motivo.options[motivo.selectedIndex].text} — ${($("#nombre", form).value || "").trim()}`;
+    const boton = form.querySelector('button[type="submit"]');
+
+    if (C.web3formsKey) {
+      const adj = $("#adjunto", form);
+      if (adj) adj.closest(".campo").insertAdjacentHTML("beforeend", '<small class="suave">Si tienes un archivo, menciónalo en el mensaje y te pediré que me lo envíes por correo.</small>'), adj.remove();
+      form.insertAdjacentHTML("beforeend", '<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">');
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const datos = new FormData(form);
+        datos.append("access_key", C.web3formsKey);
+        datos.append("subject", asunto());
+        datos.append("from_name", "Web OBEMSTAR");
+        if (motivo.value !== "impresion") ["medidas", "material", "cantidad"].forEach((k) => datos.delete(k));
+        boton.textContent = "TRANSMITIENDO..."; boton.setAttribute("aria-disabled", "true");
+        try {
+          const r = await fetch("https://api.web3forms.com/submit", { method: "POST", body: datos, headers: { Accept: "application/json" } });
+          const j = await r.json().catch(() => ({}));
+          if (!r.ok || j.success === false) throw new Error(j.message || r.status);
+          form.reset(); actualizar();
+          mostrar(`TRANSMISIÓN ENVIADA. RESPUESTA ESTIMADA: ${esc(C.respuestaEstimada || "48 H")}`, "Mensaje recibido. Te contestaré lo antes posible.");
+        } catch (err) {
+          mostrar("ERROR DE ENLACE", `No se pudo enviar. Escríbeme directamente a <b>${esc(C.email)}</b>.`);
+        }
+        boton.textContent = "Transmitir ›"; boton.removeAttribute("aria-disabled");
+      });
+    } else {
+
+    form.action = `https://formsubmit.co/${destino.trim()}`;
+    form.method = "POST";
+    form.enctype = "multipart/form-data";
     const vuelta = new URL("transmit.html?enviado=1", location.href).href;
     oculto("_next", vuelta);
     oculto("_template", "table");
@@ -356,20 +386,16 @@
     }
 
     form.addEventListener("submit", () => {
-      const tipo = motivo.options[motivo.selectedIndex].text;
-      const nombre = ($("#nombre", form).value || "").trim();
-      oculto("_subject", `[OBEMSTAR] ${tipo} — ${nombre}`);
+      oculto("_subject", asunto());
       oculto("_replyto", $("#email", form).value || "");
       // Los campos de impresión solo viajan si el motivo es impresión
       $$(".campos-impresion input", form).forEach((i) => { i.disabled = motivo.value !== "impresion"; });
-      const boton = form.querySelector('button[type="submit"]');
       if (boton) { boton.textContent = "TRANSMITIENDO..."; boton.setAttribute("aria-disabled", "true"); }
     });
 
     // Si el visitante vuelve atrás, deja el formulario usable otra vez
     window.addEventListener("pageshow", () => {
       $$(".campos-impresion input", form).forEach((i) => { i.disabled = false; });
-      const boton = form.querySelector('button[type="submit"]');
       if (boton) { boton.textContent = "Transmitir ›"; boton.removeAttribute("aria-disabled"); }
       actualizar();
     });
@@ -379,6 +405,7 @@
         "Mensaje recibido. Te contestaré lo antes posible.");
       history.replaceState(null, "", location.pathname);
     }
+    } // fin FormSubmit
   }
 
   /* ---------- terminal de comandos ---------- */

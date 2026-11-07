@@ -218,6 +218,8 @@ El formulario de **Transmit** envía cada mensaje como un **correo normal** a `o
 
 **Ocultar tu correo (recomendado):** tras activarlo, FormSubmit te da un código aleatorio. Pégalo en `js/contenido.js` → `formularioDestino: "tu-código"` → commit → push. Así tu dirección deja de aparecer en el código de la web y llega menos spam.
 
+**Alternativa: Web3Forms.** Si FormSubmit diera problemas, entra en web3forms.com, crea una clave con `obemstar.studio@gmail.com` (te llega por correo) y pégala en `js/contenido.js` → `web3formsKey: "tu-clave"`. El formulario pasa a enviarse sin salir de la página. La clave puede ser pública sin problema. En su plan gratuito no hay adjuntos, así que el campo de archivo se oculta solo.
+
 **Cambiar el correo de destino:** cambia `email` en `js/contenido.js`. Ten en cuenta que FormSubmit pedirá activar de nuevo la dirección nueva.
 
 ---

@@ -29,6 +29,9 @@ window.OBEMSTAR = {
     // Tras activarlo te dan un código secreto: pégalo aquí para ocultar tu correo
     // en el código de la web (ej.: "a1b2c3d4e5f6..."). Vacío = usa el email de arriba.
     formularioDestino: "",
+    // Alternativa: si pegas aquí una clave de web3forms.com, el formulario usa
+    // Web3Forms (envío sin salir de la página; adjuntos solo en su plan de pago).
+    web3formsKey: "",
     respuestaEstimada: "48 H",
 
     // Panel "ESTADO DEL SISTEMA" de la portada
