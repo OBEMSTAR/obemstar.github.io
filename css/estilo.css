@@ -64,6 +64,19 @@ img { max-width: 100%; display: block; }
 
 .contenedor { width: min(var(--ancho), 100% - 40px); margin-inline: auto; }
 
+/* ---------- Barras de desplazamiento (scrollbars) ---------- */
+/* Chrome, Edge, Opera y Safari */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #020604; border-left: 1px solid rgba(var(--acento-rgb), 0.18); }
+::-webkit-scrollbar-thumb { background: rgba(var(--acento-rgb), 0.45); border: 2px solid #020604; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--acento); box-shadow: 0 0 8px rgba(var(--acento-rgb), 0.6); }
+::-webkit-scrollbar-button { display: none; height: 0; width: 0; }
+::-webkit-scrollbar-corner { background: #020604; }
+/* Firefox */
+@supports (-moz-appearance: none) {
+  * { scrollbar-width: thin; scrollbar-color: rgba(var(--acento-rgb), 0.55) #020604; }
+}
+
 /* ---------- Efecto CRT (se apaga con body.crt-off) ---------- */
 body::before, body::after {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 900;

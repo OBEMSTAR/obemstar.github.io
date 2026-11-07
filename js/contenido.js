@@ -23,10 +23,12 @@ window.OBEMSTAR = {
     marca: "OBEMSTAR",
     // Correo de contacto de OBEMSTAR (aparece en el pie y en Transmit).
     email: "obemstar.studio@gmail.com",
-    // Formulario de contacto: crea una cuenta gratis en formspree.io,
-    // crea un formulario y pega aquí su ID (las letras tras /f/).
-    // Mientras esté vacío, el formulario abre el programa de correo.
-    formspreeId: "",
+    // Formulario de contacto (Transmit): los mensajes llegan como correo normal
+    // a esta dirección gracias a FormSubmit (gratis, sin registro).
+    // La primera vez, FormSubmit envía un correo de activación que hay que aceptar.
+    // Tras activarlo te dan un código secreto: pégalo aquí para ocultar tu correo
+    // en el código de la web (ej.: "a1b2c3d4e5f6..."). Vacío = usa el email de arriba.
+    formularioDestino: "",
     respuestaEstimada: "48 H",
 
     // Panel "ESTADO DEL SISTEMA" de la portada

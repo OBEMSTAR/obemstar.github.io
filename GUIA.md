@@ -212,13 +212,13 @@ Los bloques con `ejemplo: true` salen marcados en rojo como **DATOS DE EJEMPLO**
 
 ## 7. Formulario de contacto
 
-Ahora mismo, al pulsar *Transmitir*, se abre el programa de correo del visitante con el mensaje ya escrito.
-Para que llegue directamente a tu bandeja sin depender de eso:
-1. Crea una cuenta gratis en **formspree.io** con el correo de OBEMSTAR.
-2. Crea un formulario nuevo y copia su ID (lo que va después de `/f/`, por ejemplo `xyzabcde`).
-3. En `js/contenido.js`: `formspreeId: "xyzabcde",` → commit → push.
+El formulario de **Transmit** envía cada mensaje como un **correo normal** a `obemstar.studio@gmail.com`, a través de **FormSubmit** (gratis y sin registro). El asunto llega así: `[OBEMSTAR] Encargo de impresión 3D — Nombre`. Si pulsas *Responder*, contestas directamente a quien te escribió. Los adjuntos (STL o imágenes) llegan como archivos adjuntos, con un límite de 10 MB por mensaje.
 
-Nota: el adjunto (STL o imagen) solo se envía con Formspree, y la subida de archivos puede requerir uno de sus planes de pago. Con el plan gratuito, pide que te lo manden después por correo.
+**Activación (solo una vez):** la primera vez que alguien envía el formulario, FormSubmit manda a `obemstar.studio@gmail.com` un correo titulado algo como *"Action Required: Activate FormSubmit"*. Ábrelo y pulsa **Activate Form**. Los mensajes enviados antes de activarlo se entregan después. Si no lo ves, mira en *Spam* o *Promociones*.
+
+**Ocultar tu correo (recomendado):** tras activarlo, FormSubmit te da un código aleatorio. Pégalo en `js/contenido.js` → `formularioDestino: "tu-código"` → commit → push. Así tu dirección deja de aparecer en el código de la web y llega menos spam.
+
+**Cambiar el correo de destino:** cambia `email` en `js/contenido.js`. Ten en cuenta que FormSubmit pedirá activar de nuevo la dirección nueva.
 
 ---
 
