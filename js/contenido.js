@@ -21,8 +21,8 @@ window.OBEMSTAR = {
   /* ---------- Datos generales ---------- */
   config: {
     marca: "OBEMSTAR",
-    // ⚠ Cambia esto por tu correo real de OBEMSTAR cuando lo tengas.
-    email: "contacto@obemstar.com",
+    // Correo de contacto de OBEMSTAR (aparece en el pie y en Transmit).
+    email: "obemstar.studio@gmail.com",
     // Formulario de contacto: crea una cuenta gratis en formspree.io,
     // crea un formulario y pega aquí su ID (las letras tras /f/).
     // Mientras esté vacío, el formulario abre el programa de correo.
