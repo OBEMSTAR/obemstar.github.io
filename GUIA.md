@@ -48,7 +48,7 @@ El ciclo de trabajo es siempre el mismo:
 editar archivos  →  commit (guardar con mensaje)  →  push (subir)  →  la web se actualiza sola
 ```
 
-Esta carpeta **ya es un repositorio Git**, con su historial inicial hecho. Solo falta subirlo a GitHub.
+La web ya está en GitHub y publicada. Solo tienes que clonarla en tu ordenador (apartado 3.4).
 
 ---
 
@@ -56,40 +56,30 @@ Esta carpeta **ya es un repositorio Git**, con su historial inicial hecho. Solo 
 
 ### 3.1 Crea tu cuenta de GitHub
 1. Entra en **github.com** → *Sign up*.
-2. Usa el correo de OBEMSTAR si ya lo tienes (si no, el actual; se puede cambiar después en *Settings → Emails*).
-3. Elige un nombre de usuario: por ejemplo `obemstar`. Aparecerá en la dirección de la web.
+2. Cuenta creada: **OBEMSTAR** (obemstar.studio@gmail.com).
 
 ### 3.2 Instala GitHub Desktop (recomendado para empezar)
 Es un programa con botones que hace lo mismo que Git por comandos, sin tener que escribirlos.
 1. Descárgalo de **desktop.github.com** e instálalo.
 2. Inicia sesión con tu cuenta de GitHub.
 
-### 3.3 Sube la web a GitHub
-1. Descomprime `obemstar-web.zip` donde quieras guardarla (por ejemplo, `Documentos/OBEMSTAR/obemstar-web`).
-2. En GitHub Desktop: **File → Add local repository…** → elige la carpeta `obemstar-web` → *Add repository*.
-3. Pulsa **Publish repository**.
-   - Nombre: `obemstar-web`
-   - **Desmarca** "Keep this code private". El alojamiento gratuito de GitHub Pages necesita que el repositorio sea público (no hay nada secreto en él).
-4. Listo: tu código ya está en `github.com/TU-USUARIO/obemstar-web`.
+### 3.3 La web ya está publicada
+- **Dirección pública:** https://obemstar.github.io
+- **Repositorio:** https://github.com/OBEMSTAR/obemstar.github.io (público, cuenta OBEMSTAR)
+- GitHub Pages publica automáticamente la rama `main`: **cada push actualiza la web en uno o dos minutos.**
+
+### 3.4 Trae la web a tu ordenador (una vez)
+1. En GitHub Desktop, inicia sesión con la cuenta **OBEMSTAR**.
+2. **File → Clone repository…** → pestaña *GitHub.com* → elige `OBEMSTAR/obemstar.github.io` → elige dónde guardarla (por ejemplo `Documentos/OBEMSTAR/`) → **Clone**.
+3. Trabaja siempre sobre esa carpeta clonada (no sobre el zip).
 
 <details>
 <summary>Alternativa: hacerlo con la terminal</summary>
 
-Instala Git desde **git-scm.com**, crea en GitHub un repositorio vacío llamado `obemstar-web` (sin README) y ejecuta dentro de la carpeta:
-
 ```bash
-git remote add origin https://github.com/TU-USUARIO/obemstar-web.git
-git push -u origin main
+git clone https://github.com/OBEMSTAR/obemstar.github.io.git
 ```
 </details>
-
-### 3.4 Publica la web gratis con GitHub Pages
-1. En GitHub, abre tu repositorio → **Settings → Pages**.
-2. En *Build and deployment*: **Source: Deploy from a branch**.
-3. *Branch*: **main**, carpeta **/ (root)** → **Save**.
-4. En uno o dos minutos la web estará en: `https://TU-USUARIO.github.io/obemstar-web/`
-
-Desde ese momento, **cada vez que hagas push, la web publicada se actualiza sola**.
 
 ---
 
@@ -253,7 +243,7 @@ Cuando compres el dominio:
 1. GitHub → repositorio → **Settings → Pages → Custom domain** → escribe `obemstar.com` → *Save*.
 2. En el panel de tu proveedor de dominio, añade estos registros DNS:
    - Cuatro registros **A** para `@` apuntando a: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - Un registro **CNAME** para `www` apuntando a `TU-USUARIO.github.io`
+   - Un registro **CNAME** para `www` apuntando a `obemstar.github.io`
 3. Espera a que se verifique (de minutos a unas horas) y marca **Enforce HTTPS**.
 
 Comprueba los valores actuales en la documentación de GitHub Pages ("Managing a custom domain") antes de configurarlo.
