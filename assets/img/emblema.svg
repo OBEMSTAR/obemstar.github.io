@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#39FF88" stroke-width="2.2" stroke-linecap="round">
+  <!-- OBEMSTAR · emblema: el planeta Obem con su anillo y la estrella -->
+  <circle cx="30" cy="34" r="15"/>
+  <path d="M15.5 30.5h29M16.8 39.5h26.4" stroke-width="1.4" opacity=".7"/>
+  <ellipse cx="30" cy="34" rx="26" ry="7.5" transform="rotate(-18 30 34)"/>
+  <path d="M51 5l2.4 6.6L60 14l-6.6 2.4L51 23l-2.4-6.6L42 14l6.6-2.4z" fill="#39FF88" stroke="none"/>
+</svg>
