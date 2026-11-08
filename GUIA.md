@@ -202,6 +202,9 @@ Los bloques con `ejemplo: true` salen marcados en rojo como **DATOS DE EJEMPLO**
 
 ## 6. Textos fijos, colores y tipografías
 
+> **Importante, para que los visitantes vean siempre la versión nueva:** los navegadores guardan copia de `css/estilo.css`, `js/contenido.js` y `js/sistema.js`. Cada página los carga con una marca de versión, por ejemplo `js/contenido.js?v=20261108b`. Si cambias esos archivos y alguien sigue viendo la versión vieja, cambia la marca en **todos** los `.html` (por ejemplo, a la fecha del día). En VS Code: *Buscar y reemplazar en archivos* (Ctrl+Mayús+H), sustituyendo `?v=20261108b` por `?v=20261120`.
+
+
 - **Lo que soy:** edita `sobre-mi.html`. Busca los comentarios `<!-- EDITA -->`; marcan cada texto que es tuyo (foto, datos, biografía, directiva y herramientas).
 - **Frase de la portada:** `index.html`, comentario `<!-- EDITA: tu frase de presentación -->`.
 - **Colores:** `css/estilo.css`, bloque `:root` del principio. Cada módulo tiene el suyo:

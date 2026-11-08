@@ -352,6 +352,22 @@ p { margin: 0 0 1em; }
   background-image: linear-gradient(45deg, transparent 50%, var(--acento) 50%), linear-gradient(135deg, var(--acento) 50%, transparent 50%);
   background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
 .campo select option { background: #020604; color: var(--cromo); }
+/* Autocompletado del navegador: mantiene el fondo oscuro */
+.campo input:-webkit-autofill, .campo input:-webkit-autofill:hover, .campo input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--cromo); caret-color: var(--cromo);
+  -webkit-box-shadow: 0 0 0 1000px #020604 inset; box-shadow: 0 0 0 1000px #020604 inset;
+  transition: background-color 9999s ease-out 0s;
+}
+/* Campo numérico: oculta las flechas del sistema y usa botones propios */
+.campo input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.campo input[type="number"]::-webkit-inner-spin-button, .campo input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.contador { display: flex; align-items: stretch; }
+.contador input { flex: 1; min-width: 0; text-align: center; border-left: 0 !important; border-right: 0 !important; }
+.contador button {
+  width: 44px; flex-shrink: 0; cursor: pointer; font-family: var(--f-sistema); font-size: 1.5rem; line-height: 1;
+  color: var(--acento); background: rgba(var(--acento-rgb), 0.1); border: 1px solid rgba(var(--acento-rgb), 0.4);
+}
+.contador button:hover { background: var(--acento); color: var(--fondo); }
 .campos-impresion { display: none; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); padding: 16px; border: 1px dashed var(--ambar); --acento: var(--ambar); --acento-rgb: 255, 158, 44; }
 .campos-impresion.visible { display: grid; }
 .campos-impresion .campo-ancho { grid-column: 1 / -1; }

@@ -346,6 +346,20 @@
     const asunto = () => `[OBEMSTAR] ${motivo.options[motivo.selectedIndex].text} — ${($("#nombre", form).value || "").trim()}`;
     const boton = form.querySelector('button[type="submit"]');
 
+    // Botones − / + con la estética de la web para los campos numéricos
+    $$('.campo input[type="number"]', form).forEach((n) => {
+      const caja = document.createElement("div");
+      caja.className = "contador";
+      n.replaceWith(caja);
+      caja.innerHTML = '<button type="button" aria-label="Restar uno">−</button>';
+      caja.appendChild(n);
+      caja.insertAdjacentHTML("beforeend", '<button type="button" aria-label="Sumar uno">+</button>');
+      const [menos, mas] = caja.querySelectorAll("button");
+      const ajustar = (d) => { const min = Number(n.min || 1); n.value = Math.max(min, (Number(n.value) || min) + d); };
+      menos.addEventListener("click", () => ajustar(-1));
+      mas.addEventListener("click", () => ajustar(1));
+    });
+
     // Los adjuntos no viajan por este formulario: se pide mencionarlos en el mensaje
     const adj = $("#adjunto", form);
     if (adj) {
