@@ -346,9 +346,16 @@
     const asunto = () => `[OBEMSTAR] ${motivo.options[motivo.selectedIndex].text} — ${($("#nombre", form).value || "").trim()}`;
     const boton = form.querySelector('button[type="submit"]');
 
+    // Los adjuntos no viajan por este formulario: se pide mencionarlos en el mensaje
+    const adj = $("#adjunto", form);
+    if (adj) {
+      const campo = adj.closest(".campo");
+      campo.querySelector("label").textContent = "ARCHIVOS (STL O IMÁGENES)";
+      adj.remove();
+      campo.insertAdjacentHTML("beforeend", '<small class="suave">Si tienes un STL o una imagen, menciónalo en el mensaje y te pediré que me lo envíes por correo.</small>');
+    }
+
     if (C.web3formsKey) {
-      const adj = $("#adjunto", form);
-      if (adj) adj.closest(".campo").insertAdjacentHTML("beforeend", '<small class="suave">Si tienes un archivo, menciónalo en el mensaje y te pediré que me lo envíes por correo.</small>'), adj.remove();
       form.insertAdjacentHTML("beforeend", '<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">');
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
