@@ -329,11 +329,9 @@
     if (pedido && $(`option[value="${pedido}"]`, motivo)) motivo.value = pedido;
     motivo.addEventListener("change", actualizar); actualizar();
 
-    // Envío del formulario. Dos servicios posibles:
-    //  · Web3Forms (si config.web3formsKey tiene valor): se envía sin salir de la página.
-    //  · FormSubmit (por defecto): POST normal, admite adjuntos y vuelve a esta página.
-    // En ambos casos el mensaje llega como un correo normal.
-    const destino = C.formularioDestino || C.email;
+    // Envío del formulario:
+    //  · Con config.web3formsKey: Web3Forms envía el mensaje a tu bandeja como un correo normal.
+    //  · Sin clave: se abre el programa de correo del visitante con el mensaje preparado.
     const ok = $(".confirmacion");
     const mostrar = (titulo, texto) => {
       ok.innerHTML = `<div class="sistema">${titulo}</div><p>${texto}</p>`;
@@ -372,40 +370,16 @@
         boton.textContent = "Transmitir ›"; boton.removeAttribute("aria-disabled");
       });
     } else {
-
-    form.action = `https://formsubmit.co/${destino.trim()}`;
-    form.method = "POST";
-    form.enctype = "multipart/form-data";
-    const vuelta = new URL("transmit.html?enviado=1", location.href).href;
-    oculto("_next", vuelta);
-    oculto("_template", "table");
-    oculto("_captcha", "false");
-    // Trampa para bots: un campo invisible que las personas no rellenan
-    if (!form.querySelector('input[name="_honey"]')) {
-      form.insertAdjacentHTML("beforeend", '<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">');
+      // Sin clave de Web3Forms: prepara el correo en el programa de email del visitante
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const datos = new FormData(form);
+        const lineas = [];
+        for (const [k, v] of datos.entries()) if (v && typeof v === "string") lineas.push(`${k.toUpperCase()}: ${v}`);
+        location.href = `mailto:${C.email}?subject=${encodeURIComponent(asunto())}&body=${encodeURIComponent(lineas.join("\n"))}`;
+        mostrar("TRANSMISIÓN PREPARADA", `Se ha abierto tu programa de correo con el mensaje listo. Si no se abre, escríbeme a <b>${esc(C.email)}</b>.`);
+      });
     }
-
-    form.addEventListener("submit", () => {
-      oculto("_subject", asunto());
-      oculto("_replyto", $("#email", form).value || "");
-      // Los campos de impresión solo viajan si el motivo es impresión
-      $$(".campos-impresion input", form).forEach((i) => { i.disabled = motivo.value !== "impresion"; });
-      if (boton) { boton.textContent = "TRANSMITIENDO..."; boton.setAttribute("aria-disabled", "true"); }
-    });
-
-    // Si el visitante vuelve atrás, deja el formulario usable otra vez
-    window.addEventListener("pageshow", () => {
-      $$(".campos-impresion input", form).forEach((i) => { i.disabled = false; });
-      if (boton) { boton.textContent = "Transmitir ›"; boton.removeAttribute("aria-disabled"); }
-      actualizar();
-    });
-
-    if (new URLSearchParams(location.search).get("enviado")) {
-      mostrar(`TRANSMISIÓN ENVIADA. RESPUESTA ESTIMADA: ${esc(C.respuestaEstimada || "48 H")}`,
-        "Mensaje recibido. Te contestaré lo antes posible.");
-      history.replaceState(null, "", location.pathname);
-    }
-    } // fin FormSubmit
   }
 
   /* ---------- terminal de comandos ---------- */

@@ -23,14 +23,9 @@ window.OBEMSTAR = {
     marca: "OBEMSTAR",
     // Correo de contacto de OBEMSTAR (aparece en el pie y en Transmit).
     email: "obemstar.studio@gmail.com",
-    // Formulario de contacto (Transmit): los mensajes llegan como correo normal
-    // a esta dirección gracias a FormSubmit (gratis, sin registro).
-    // La primera vez, FormSubmit envía un correo de activación que hay que aceptar.
-    // Tras activarlo te dan un código secreto: pégalo aquí para ocultar tu correo
-    // en el código de la web (ej.: "a1b2c3d4e5f6..."). Vacío = usa el email de arriba.
-    formularioDestino: "",
-    // Alternativa: si pegas aquí una clave de web3forms.com, el formulario usa
-    // Web3Forms (envío sin salir de la página; adjuntos solo en su plan de pago).
+    // Formulario de contacto (Transmit): pega aquí tu clave de web3forms.com
+    // y cada mensaje te llegará como un correo normal a la dirección de esa clave.
+    // La clave puede ser pública sin problema. Vacía = abre el programa de correo del visitante.
     web3formsKey: "",
     respuestaEstimada: "48 H",
 

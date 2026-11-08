@@ -212,15 +212,16 @@ Los bloques con `ejemplo: true` salen marcados en rojo como **DATOS DE EJEMPLO**
 
 ## 7. Formulario de contacto
 
-El formulario de **Transmit** envía cada mensaje como un **correo normal** a `obemstar.studio@gmail.com`, a través de **FormSubmit** (gratis y sin registro). El asunto llega así: `[OBEMSTAR] Encargo de impresión 3D — Nombre`. Si pulsas *Responder*, contestas directamente a quien te escribió. Los adjuntos (STL o imágenes) llegan como archivos adjuntos, con un límite de 10 MB por mensaje.
+El formulario de **Transmit** envía cada mensaje como un **correo normal** a `obemstar.studio@gmail.com` mediante **Web3Forms** (gratis hasta 250 mensajes al mes). El asunto llega así: `[OBEMSTAR] Encargo de impresión 3D — Nombre`, y al responder contestas directamente a quien te escribió.
 
-**Activación (solo una vez):** la primera vez que alguien envía el formulario, FormSubmit manda a `obemstar.studio@gmail.com` un correo titulado algo como *"Action Required: Activate FormSubmit"*. Ábrelo y pulsa **Activate Form**. Los mensajes enviados antes de activarlo se entregan después. Si no lo ves, mira en *Spam* o *Promociones*.
+**Configurarlo (una vez):**
+1. Entra en **web3forms.com** → *Create your Form — Free* y usa `obemstar.studio@gmail.com`.
+2. Te llegará un correo con tu **Access Key**, un código parecido a `a1b2c3d4-...`.
+3. Pégala en `js/contenido.js` → `web3formsKey: "tu-clave"` → commit → push.
 
-**Ocultar tu correo (recomendado):** tras activarlo, FormSubmit te da un código aleatorio. Pégalo en `js/contenido.js` → `formularioDestino: "tu-código"` → commit → push. Así tu dirección deja de aparecer en el código de la web y llega menos spam.
-
-**Alternativa: Web3Forms.** Si FormSubmit diera problemas, entra en web3forms.com, crea una clave con `obemstar.studio@gmail.com` (te llega por correo) y pégala en `js/contenido.js` → `web3formsKey: "tu-clave"`. El formulario pasa a enviarse sin salir de la página. La clave puede ser pública sin problema. En su plan gratuito no hay adjuntos, así que el campo de archivo se oculta solo.
-
-**Cambiar el correo de destino:** cambia `email` en `js/contenido.js`. Ten en cuenta que FormSubmit pedirá activar de nuevo la dirección nueva.
+La clave no es secreta: puede estar en el código de la web sin problema.
+Mientras la clave esté vacía, el formulario abre el programa de correo del visitante con el mensaje preparado.
+En el plan gratuito no hay adjuntos, así que el campo de archivo se oculta solo y se pide al visitante que lo mencione en el mensaje.
 
 ---
 
