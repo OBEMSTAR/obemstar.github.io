@@ -26,7 +26,7 @@ window.OBEMSTAR = {
     // Formulario de contacto (Transmit): pega aquí tu clave de web3forms.com
     // y cada mensaje te llegará como un correo normal a la dirección de esa clave.
     // La clave puede ser pública sin problema. Vacía = abre el programa de correo del visitante.
-    web3formsKey: "",
+    web3formsKey: "1b96f58f-b1ec-419d-b074-0f610687345f",
     respuestaEstimada: "48 H",
 
     // Panel "ESTADO DEL SISTEMA" de la portada
